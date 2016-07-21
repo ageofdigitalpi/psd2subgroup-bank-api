@@ -1,0 +1,44 @@
+#%RAML 0.8
+title: PSD2 BANK API
+version: 1.0
+baseUri: http://psd2-bank.cloudhub.io/api
+
+/accounts/{accountNumber}/transactions:
+  uriParameters:
+    accountNumber:
+      description: Account number. Use 36253527 for Lloyds bank or 87623476 for HSBC.
+      type: string
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: | 
+              [
+                {
+                  "timestamp": "2016-07-12 12:34", 
+                  "description": "Costa coffe", 
+                  "type": "Debit transaction", 
+                  "ref": "DHETYENKF", 
+                  "accountNumber": "87623476", 
+                  "amount": "2.20"
+                },
+                {
+                  "timestamp": "2016-07-10 12:34", 
+                  "description": "Sainsbury's", 
+                  "type": "Debit transaction", 
+                  "ref": "JDUEHRDH", 
+                  "accountNumber": "87623476", 
+                  "amount": "42.20"
+                },
+                {
+                  "timestamp": "2016-07-02 12:34", 
+                  "description": "Uber", 
+                  "type": "Debit transaction", 
+                  "ref": "FHEYDHY", 
+                  "accountNumber": "87623476", 
+                  "amount": "17.20"
+                }
+              ]
+                
+                
